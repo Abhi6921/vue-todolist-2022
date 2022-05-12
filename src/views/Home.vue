@@ -50,7 +50,7 @@
             const res = await fetch(`api/tasks/${id}`, {
                 method: 'PUT',
                 headers: {
-                'Content-type': 'application/json',
+                    'Content-type': 'application/json',
                 },
                 body: JSON.stringify(updTask),
             })
