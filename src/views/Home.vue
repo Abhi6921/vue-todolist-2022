@@ -6,7 +6,7 @@
 <script>
     import Tasks from '../components/Tasks.vue'
     import AddTask from '../components/AddTask.vue'
-
+// this changes was made from the branch
     export default {
         name: 'Home',
         props: {

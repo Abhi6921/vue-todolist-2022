@@ -27,6 +27,9 @@ export default {
     toggleAddTask() {
       this.showAddTask = !this.showAddTask
     },
+    date: function (date) {
+      return moment(date).format('MMMM Do YYYY, h:mm:ss a');
+    }
   },
 }
 </script>
