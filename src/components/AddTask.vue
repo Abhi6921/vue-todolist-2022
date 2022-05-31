@@ -7,7 +7,7 @@
     <div class="form-control">
       <label>Day & Time</label>
       <input
-        type="text"
+        type="datetime-local"
         v-model="day"
         name="day"
         placeholder="Add Day & Time"
@@ -33,7 +33,15 @@
 
             }
         },
+        filters: {
+           moment: function (day) {
+             return moment(day).format('MMMM dd YYYY')
+           }
+        },
         methods: {
+          moment: function () {
+            return moment();
+          }, 
             onSubmit(e) {
                 e.preventDefault()
 
@@ -41,17 +49,18 @@
                     alert('Please add a task')
                     return
                 }
-
+                
                 const newTask = {
                     text: this.text,
                     day: this.day,
                     reminder: this.reminder
                 }
+                console.log(newTask)
                 this.$emit('add-task', newTask)
                 this.text = ''
                 this.day = ''
                 this.reminder = false
-            } 
+            }
         }
     }
 </script>

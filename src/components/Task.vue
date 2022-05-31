@@ -4,15 +4,23 @@
             {{ task.text }}
             <i @click="$emit('delete-task', task.id)" class="fas fa-times"></i>
         </h3>
-        <p>{{ task.day }}</p>
+        <!--<p>{{ task.day }}</p>-->
+        <p class="method">{{ date(task.day) }}</p>
     </div>
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
     name: 'Task',
     props: {
         task: Object, 
+    },
+    methods: {
+      date: function (date) {
+        return moment(date).format('MMMM Do YYYY, h:mm a');
+      }
     }
 }
 </script>
